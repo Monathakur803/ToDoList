@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from "react";
+import Todolist from "./components/todolist";
+import AddItem from "./components/additem";
+import "./App.css";
+const App = () => {
+   
+    const  [listitems, setListItems] = useState ([
+         //   { itemid: Math.trunc(Math.random() * 100 + 1), itemname: "Buy item" },
+          //  { itemid: Math.trunc(Math.random() * 100 + 1), itemname: "Watch item" },
+          //  { itemid: Math.trunc(Math.random() * 100 + 1), itemname: "Study" },
+        ]);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+        // const Listitems = ;
+        const addItemHandler = (newitem) => {
+          setListItems((previouslist) => {
+                    return previouslist.concat(newitem);
+    
+                });  
+          //  listitems.push(newitem);
+          //  console.log(listitems);
+        };
+    const name = "MERN";
+    return (
+        <div className="container">
+            <h1>{name}'s To Do list</h1>
+            <AddItem onAddItem ={addItemHandler} />
+            <Todolist list={listitems} />
+        </div>
+    );
+};
 
 export default App;

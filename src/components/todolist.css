@@ -1,0 +1,7 @@
+.todolist li{
+    padding:1rem;
+    list-style-type: none;
+    font-size: 130%;
+    line-height: 25px;
+    padding-bottom: 0;
+}
